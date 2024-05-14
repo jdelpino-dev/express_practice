@@ -48,6 +48,17 @@ app.get("/greet/:language", (req, res) => {
   return res.send(greeting);
 });
 
+app.get("/search", (req, res) => {
+  const { term, sort } = req.query;
+  if (!term) {
+    return res.send("Nothing found if nothing searched!");
+  }
+  if (!sort) {
+    return res.send(`Search Page! Term is ${term}.`);
+  }
+  return res.send(`Search Page! Term is ${term} and sort is ${sort}.`);
+});
+
 app.listen(3300, () => {
   console.log("App on port 3300");
 });
