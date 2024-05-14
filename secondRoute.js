@@ -2,6 +2,10 @@ import express from "express";
 
 const app = express();
 
+// Configuring express to use body-parser as middle-ware.
+app.use(express.json()); // Parse JSON bodies
+app.use(express.urlencoded({ extended: true })); // Parse URL-encoded bodies
+
 // Middleware function that runs for every request
 app.use((req, res, next) => {
   console.log(`${req.method} request for ${req.url}\n\n`);
