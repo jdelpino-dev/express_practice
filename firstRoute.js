@@ -2,12 +2,13 @@ import express from "express";
 
 const app = express();
 
-app.get("/", (request, response) => {
+app.get("/", (req, res) => {
   return response.send("Welcome to the animal app running for good…");
 });
 
-app.get("/dogs", (request, response) => {
-  return response.send("Dogs go brk brk!");
+app.get("/dogs", (req, res) => {
+  console.log(res);
+  return res.send("Dogs go brk brk!");
 });
 
 app.listen(3300, () => {
