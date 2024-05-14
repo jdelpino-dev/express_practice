@@ -23,6 +23,6 @@ app.post("/candies", (req, res) => {
   res.status(201).json(CANDIES);
 });
 
-app.listen(3000, () => {
+app.listen(3300, () => {
   console.log("Server running on port 3000");
 });
