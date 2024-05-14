@@ -1,11 +1,11 @@
-const express = require('express');
+import express from "express";
 
 const app = express();
 
-app.get('/dogs', function(request, response) {
-  return response.send('Dogs go brk brk');
+app.get("/dogs", function (request, response) {
+  return response.send("Dogs go brk brk");
 });
 
-app.listen(3000, function(){
-  console.log('App on port 3000');
-}) 
+app.listen(3000, function () {
+  console.log("App on port 3000");
+});
