@@ -15,11 +15,13 @@ app.get("/candies", (req, res) => {
 
 app.post("/candies", (req, res) => {
   if (req.body.name.toLowerCase() === "circus peanuts") {
-    res
+    console.log("CANDIES: ", CANDIES);
+    return res
       .status(403)
       .json({ msg: "HORRIBLE CHOICE.  CIRCUS PEANUTS FORBIDDEN!" });
   }
   CANDIES.push(req.body);
+  console.log("CANDIES: ", CANDIES);
   res.status(201).json(CANDIES);
 });
 
