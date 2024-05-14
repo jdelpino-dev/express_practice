@@ -78,6 +78,10 @@ app.get("/search", (req, res) => {
   return res.send(`Search Page! Term is ${term} and sort is ${sort}.`);
 });
 
+app.post("register", (req, res) => {
+  res.send(req.body);
+});
+
 app.listen(3300, () => {
   console.log("App on port 3300");
 });
