@@ -49,12 +49,12 @@ app.get("/greet/:language", (req, res) => {
 });
 
 app.get("/search", (req, res) => {
-  const { term, sort } = req.query;
+  let { term, sort = "top" } = req.query;
   if (!term) {
     return res.send("Nothing found if nothing searched!");
   }
   if (!sort) {
-    return res.send(`Search Page! Term is ${term}.`);
+    sort = "top"; // force default value if sort value is ""
   }
   return res.send(`Search Page! Term is ${term} and sort is ${sort}.`);
 });
