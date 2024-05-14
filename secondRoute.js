@@ -15,14 +15,8 @@ app.use((req, res, next) => {
   console.log("IP:\n", req.ip, "\n\n");
   console.log("Protocol:\n", req.protocol, "\n\n");
   console.log("Secure?:\n", req.secure, "\n\n");
-  console.log("Stale?:\n", req.stale, "\n\n");
-  console.log("Fresh?:\n", req.fresh, "\n\n");
-  console.log("XHR?:\n", req.xhr, "\n\n");
   console.log("Cookies:\n", req.cookies, "\n\n");
   console.log("Signed Cookies:\n", req.signedCookies, "\n\n");
-  console.log("Route:\n", req.route, "\n\n");
-  console.log("Subdomains:\n", req.subdomains, "\n\n");
-  console.log("Accepted Languages:\n", req.acceptedLanguages, "\n\n");
   next(); // Pass control to the next handler
 });
 
