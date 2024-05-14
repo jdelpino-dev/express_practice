@@ -29,6 +29,25 @@ app.post("/chickens", function createChicken(req, res) {
   return res.send("You created a chicken!");
 });
 
+const greetings = {
+  en: "Hello",
+  fr: "Bonjour",
+  ic: "Halló",
+  js: "konnichiwa",
+  ic: "Halló",
+  es: "Hola",
+  ya: "Yahallo",
+};
+
+app.get("/greet/:language", (req, res) => {
+  const lang = req.params.language;
+  const greeting = greetings[lang];
+  if (!greeting) {
+    return res.send("Invalid language");
+  }
+  return res.send(greeting);
+});
+
 app.listen(3300, () => {
   console.log("App on port 3300");
 });
