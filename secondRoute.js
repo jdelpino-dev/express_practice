@@ -7,13 +7,17 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dogs", (req, res) => {
-  return res.send("but what about these dogs???");
+  return res.send("but what about these doggies???");
+});
+
+app.post("/dogs", function createDog(req, res) {
+  return res.send("You created a doggggyyyy!");
 });
 
 // this second /dogs route will never get matched, because
 // it is after the first / dogs route
 app.get("/dogs", (req, res) => {
-  return res.send("Dogs go brk brk");
+  return res.send("Dogs go brk brku");
 });
 
 //  Beacause the are different verbs, both chickens routes will work!
