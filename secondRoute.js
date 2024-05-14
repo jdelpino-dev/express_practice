@@ -82,7 +82,7 @@ app.get("/search", (req, res) => {
   return res.send(`Search Page! Term is ${term} and sort is ${sort}.`);
 });
 
-app.post("register", (req, res) => {
+app.post("/register", (req, res) => {
   res.send(req.body);
 });
 
