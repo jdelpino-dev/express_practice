@@ -7,7 +7,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/dogs", (req, res) => {
-  return res.send(["<p>Bulldog", "Beagle", "Labrador</p>"]);
+  return res.send(["Bulldog", "Beagle", "Labrador"]);
 });
 
 app.listen(3300, () => {
