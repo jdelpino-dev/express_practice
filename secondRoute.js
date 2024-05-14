@@ -2,6 +2,10 @@ import express from "express";
 
 const app = express();
 
+app.get("/", (req, res) => {
+  return res.send("<h1>Welcome to the animal app running for good…</h1>");
+});
+
 app.get("/dogs", function (req, res) {
   return res.send("Dogs go brk brk");
 });
@@ -12,5 +16,5 @@ app.get("/dogs", function (req, res) {
 });
 
 app.listen(3000, function () {
-  console.log("App on port 3000");
+  console.log("App on port 3300");
 });
