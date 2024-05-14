@@ -2,6 +2,30 @@ import express from "express";
 
 const app = express();
 
+// Middleware function that runs for every request
+app.use((req, res, next) => {
+  console.log(`${req.method} request for ${req.url}/n/n`);
+  console.log("Original URL:/n", req.originalUrl, "/n/n");
+  console.log("Headers::/n", req.headers, "/n/n");
+  console.log("Path:/n", req.path, "/n/n");
+  console.log("Parameters:/n", req.params, "/n/n");
+  console.log("Query String Object:/n", req.query, "/n/n");
+  console.log("Body:/n", req.body, "/n/n");
+  console.log("Hostname:/n", req.hostname, "/n/n");
+  console.log("IP:/n", req.ip, "/n/n");
+  console.log("Protocol:/n", req.protocol, "/n/n");
+  console.log("Secure?:/n", req.secure, "/n/n");
+  console.log("Stale?:/n", req.stale, "/n/n");
+  console.log("Fresh?:/n", req.fresh, "/n/n");
+  console.log("XHR?:/n", req.xhr, "/n/n");
+  console.log("Cookies:/n", req.cookies, "/n/n");
+  console.log("Signed Cookies:/n", req.signedCookies, "/n/n");
+  console.log("Route:/n", req.route, "/n/n");
+  console.log("Subdomains:/n", req.subdomains, "/n/n");
+  console.log("Accepted Languages:/n", req.acceptedLanguages, "/n/n");
+  next(); // Pass control to the next handler
+});
+
 app.get("/", (req, res) => {
   return res.send("<h1>Welcome to the animal app running for good…</h1>");
 });
