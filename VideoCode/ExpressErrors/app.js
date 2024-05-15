@@ -1,5 +1,5 @@
 import express from "express";
-import { ExpressError } from "./expressError,js";
+import { ExpressError } from "./expressError.js";
 
 const app = express();
 
