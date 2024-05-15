@@ -65,6 +65,9 @@ app.use((req, res, next) => {
 });
 
 // Error handler middleware
+// An error handles in Expres is a app.use() middleware with a callback
+// that takes 4 parameters. They are comventionally calles `err`,
+// `req`, `res`, and`next`
 app.use(function (err, req, res, next) {
   //Note the 4 parameters!
   // the default status is 500 Internal Server Error
