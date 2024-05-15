@@ -3,7 +3,7 @@ import ExpressError from "./expressError.js";
 
 const app = express();
 
-// Middleware
+// Middleware (At the Beginning of each Request)
 app.use((req, res, next) => {
   console.log("MIDDLEWARE #1: THE SERVER GOT A REQUEST!");
   next();
@@ -56,7 +56,8 @@ app.get("/savetodb", (req, res, next) => {
   }
 });
 
-// More Middleware
+// More Middleware (At the End of each Request)
+
 // If no other route matches, respond with a 404
 app.use((req, res, next) => {
   const e = new ExpressError("Page Not Found", 404); // 404 Not Found
