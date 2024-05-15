@@ -7,4 +7,4 @@ class ExpressError extends Error {
   }
 }
 
-export { ExpressError };
+export default ExpressError;
