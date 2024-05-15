@@ -1,17 +1,26 @@
 import express from "express";
-import { ExpressError } from "./expressError.js";
+import ExpressError from "./expressError.js";
 
 const app = express();
 
+// Middleware
+app.use((req, res, next) => {
+  console.log("THE SERVER GOT A REQUEST!");
+  next();
+});
+
+// Helpers
 function attemptToSaveToDB() {
   throw "Connection Error!";
 }
 
+// Globals
 const USERS = [
   { username: "StacysMom", city: "Reno" },
   { username: "Rosalia", city: "R" },
 ];
 
+// Routes
 app.get("/users/:username", function (req, res, next) {
   try {
     const user = USERS.find((u) => u.username === req.params.username);
@@ -42,13 +51,14 @@ app.get("/savetodb", (req, res, next) => {
   }
 });
 
+// More Middleware
 // If no other route matches, respond with a 404
 app.use((req, res, next) => {
   const e = new ExpressError("Page Not Found", 404); // 404 Not Found
   next(e);
 });
 
-// Error handler
+// Error handler middleware
 app.use(function (err, req, res, next) {
   //Note the 4 parameters!
   // the default status is 500 Internal Server Error
