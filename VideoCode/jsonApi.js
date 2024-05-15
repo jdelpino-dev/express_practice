@@ -17,12 +17,12 @@ app.post("/candies", (req, res) => {
   if (req.body.name.toLowerCase() === "circus peanuts") {
     console.log("CANDIES: ", CANDIES);
     return res
-      .status(403)
+      .status(403) // 403 FORBIDDEN
       .json({ msg: "HORRIBLE CHOICE.  CIRCUS PEANUTS FORBIDDEN!" });
   }
   CANDIES.push(req.body);
   console.log("CANDIES: ", CANDIES);
-  res.status(201).json(CANDIES);
+  res.status(201).json(CANDIES); // 201 CREATED
 });
 
 app.listen(3300, () => {
