@@ -15,8 +15,8 @@ const USERS = [
 app.get("/users/:username", function (req, res, next) {
   try {
     const user = USERS.find((u) => u.username === req.params.username);
-    if (!user) throw new ExpressError("invalid username", 404);
-    return res.send({ user });
+    if (!user) throw new ExpressError("invalid username", 404); // 404 Not Found
+    return res.status(200).send({ user }); // 200 OK
   } catch (e) {
     next(e);
   }
@@ -25,9 +25,9 @@ app.get("/users/:username", function (req, res, next) {
 app.get("/secret", (req, res, next) => {
   try {
     if (req.query.password != "popcorn") {
-      throw new ExpressError("invalid password", 403);
+      throw new ExpressError("invalid password", 403); // 403 Forbidden
     }
-    return res.send("CONGRATS YOU KNOW THE PASSWORD");
+    return res.status(200).send("CONGRATS YOU KNOW THE PASSWORD"); // 200 OK
   } catch (e) {
     next(e);
   }
@@ -36,15 +36,15 @@ app.get("/secret", (req, res, next) => {
 app.get("/savetodb", (req, res, next) => {
   try {
     attemptToSaveToDB();
-    return res.send("SAVED TO DB!");
+    return res.status(201).send("SAVED TO DB!"); // 201 Created
   } catch (e) {
-    return next(new ExpressError("Database Error"));
+    return next(new ExpressError("Database Error", 503)); // 503 Service Unavailable
   }
 });
 
 // If no other route matches, respond with a 404
 app.use((req, res, next) => {
-  const e = new ExpressError("Page Not Found", 404);
+  const e = new ExpressError("Page Not Found", 404); // 404 Not Found
   next(e);
 });
 
