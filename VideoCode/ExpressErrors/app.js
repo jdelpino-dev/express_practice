@@ -56,7 +56,7 @@ app.get("/savetodb", (req, res, next) => {
   }
 });
 
-// More Middleware (At the End of each Request)
+// Extra Middleware
 
 // If no other route matches, respond with a 404
 app.use((req, res, next) => {
