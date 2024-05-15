@@ -5,7 +5,7 @@ const app = express();
 
 // Middleware
 app.use((req, res, next) => {
-  console.log("THE SERVER GOT A REQUEST!");
+  console.log("MIDDLEWARE #1: THE SERVER GOT A REQUEST!");
   next();
 });
 
