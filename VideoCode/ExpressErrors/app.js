@@ -9,6 +9,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  console.log("MIDDLEWARE #2: DON'T MIND ME, JUST PASSING THROUGH!");
+  next();
+});
+
 // Helpers
 function attemptToSaveToDB() {
   throw "Connection Error!";
